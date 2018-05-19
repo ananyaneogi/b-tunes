@@ -6,6 +6,7 @@ A simple music app that makes use of iTunes api of top 100 albums.
 - Shows a list of the top 100 albums with all the information related to it.
 - The entire list is searchable for easy access.
 
+This is built on [VueJs](https://vuejs.org/).
 [Axios](https://github.com/axios/axios) is used for fetching the data.
 [Bulma](https://bulma.io/) is used as the CSS framework.
 

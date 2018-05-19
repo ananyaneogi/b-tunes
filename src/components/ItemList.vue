@@ -51,6 +51,7 @@ export default {
 <style scoped lang="scss">
 .container {
   padding: 0 60px;
+  min-height: 100vh;
 
   @media(max-width: 992px) {
     padding: 0 30px;

@@ -1,12 +1,11 @@
 <template>
   <div class="container is-fluid">
     <input class="input search-input" placeholder="Search for a song..." v-model="search"/>
-    <router-link to="/favourites">Favourites</router-link>
-    <p v-if="loading">Loading....</p>
+    <p v-if="$store.state.loading">Good things take time...</p>
     <transition-group tag="div" name="card" class="tile is-ancestor">
         <div class="tile is-parent is-3" v-for="(result,index) in filteredList" :key="result.id.attributes['im:id']">
             <div class="tile is-child">
-              <div class="card">
+              <div class="card" tabindex="0">
               <div class="card-image">
                   <a :href="result.id.label">
                   <img :src="result['im:image'][2].label " :alt="result.title.label" />
@@ -16,9 +15,8 @@
               <div class="card-content">
                 <span class="song-name">{{result['im:name'].label}}</span>
                 <span class="artist-name">{{result['im:artist'].label}}</span>
-                <span><small>Price:</small> {{result['im:price'].label}}</span>
-                <span><small>Release Date:</small> {{result['im:releaseDate'].attributes.label}}</span>
-                <!-- <input type="checkbox" @change="addToFavourite(result)"> -->
+                <span><b><small>Price:</small></b> {{result['im:price'].label}}</span>
+                <span><b><small>Release Date:</small></b> {{result['im:releaseDate'].attributes.label}}</span>
             </div>
           </div>
           </div>
@@ -32,8 +30,7 @@ export default {
   name: 'ItemList',
   data () {
     return {
-      search: '',
-      loading: true
+      search: ''
     }
   },
   computed: {
@@ -44,15 +41,11 @@ export default {
   }
   },
   created () {
-    this.loading = false
+    this.loading = true
     this.$store.dispatch('loadResult')
-  },
-  methods: {
-    addToFavourite(result) {
-    this.$store.dispatch('addToFavourite', result)
+    }
   }
-  }
-}
+
 </script>
 
 <style scoped lang="scss">
@@ -83,8 +76,9 @@ img {
   border: 1px solid #eee;
   height: 100%;
 
-  &:hover {
+  &:hover, &:focus {
     box-shadow: 1px 0 14px 0 #ddd;
+    outline: none;
 
     .card-content {
       bottom: 0;
@@ -116,12 +110,11 @@ img {
     position: absolute;
     top: 0;
     background: #ff0000;
-    padding: 2px 4px;
+    padding: 4px;
     color: #fff;
     right: 0;
     font-weight: bold;
-    font-size: 14px;
-    letter-spacing: 1.2px;
+    font-size: 13px;
   }
 
   .card-content {
@@ -150,26 +143,5 @@ img {
       }
     }
   }
-}
-.card-content-extra {
-  position: absolute;
-  transform: translateY(100%);
-  transition: all 0.3s ease-in;
-  position: absolute;
-  display: inline-block;
-  width: 100%;
-  left: 0;
-  bottom: 0;
-  background: #fff;
-  height: 50%;
-
-  span {
-    display: block;
-  }
-}
-
-.card:hover .card-content-extra{
-  transform: translateY(0%);
-  transition: all 0.3s ease-in;
 }
 </style>

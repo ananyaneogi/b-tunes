@@ -17,16 +17,24 @@ export default new Vuex.Store({
         commit('updateResult', response.data.feed.entry)
       })
     },
-    addToFavourite({commit}, result) {
-      commit('updateFavourite', result)
+    addToFavourite({commit, state}, result) {
+        commit('updateFavourite', result)
+        // if(!result.title.label === item.result.title.label) {
+        // }arr.forEach((num, index) => {
     }
   },
   mutations: {
     updateResult(state, results) {
       state.results = results
+      // console.log(results[0].id.attributes['im:id']);
     },
     updateFavourite(state, result){
-        state.favourites.push({result})
+      state.favourites.push({result})
+      state.favourites.forEach(item => {
+        if(item.result.id.attributes['im:id'] === result.id.attributes['im:id']) {
+          state.favourites.pop({result})
+        }
+      })
     }
   }
 })

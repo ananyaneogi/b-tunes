@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+body,
+html {
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#app {
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #131313;
+}
+
+.container {
+  padding: 0 60px;
+}
+
+h1, h2 {
+  font-weight: normal;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+nav {
+  -webkit-box-shadow: 1px 0rem 14px 0px #eee;
+          box-shadow: 1px 0rem 14px 0px #eee;
+  width: 100%;
+  padding: 24px;
+  height: 66px;
+  background-color: #fff;
+  z-index: 99;
+  margin-bottom: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+nav svg {
+  vertical-align: bottom;
+}
+
+nav > a {
+  font-size: 16px;
+  color: #131313;
+  font-weight: bold;
+  text-decoration: none;
+  margin-right: 50px;
+  letter-spacing: 0.5px;
+}
+
+nav a:hover {
+  opacity: 0.7;
+}
+
+nav a.router-link-active {
+  color: #ff0000;
+}
+
+.logo svg {
+  width: 30px;
+  height: 30px;
+}
+
+@media(max-width: 600px) {
+  nav {
+    padding: 20px;
+  }
+
+  nav > a {
+    margin-right: 20px;
+  }
+}
+
+.card-leave-active {
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
+
+.card-move {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.card-enter-active {
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.card-enter,
+.card-leave-to {
+  opacity: 0;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+}
+
+.fade-leave-active {
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+.fade-enter-active {
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.search-input {
+  max-width: 400px;
+  margin-bottom: 40px;
+}

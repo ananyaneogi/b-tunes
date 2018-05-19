@@ -1,6 +1,5 @@
 <template>
   <div class="container is-fluid">
-    <h1>{{ msg }}</h1>
     <h2>Your favourites</h2>
     <div v-if="$store.state.favourites.length <= 0" class="empty-cart">
       <p>Wow, such empty! 😞</p>
@@ -73,12 +72,5 @@ li {
 a {
   color: #42b983;
 }
-.tile.is-ancestor {
-  flex-wrap: wrap;
-}
-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+
 </style>

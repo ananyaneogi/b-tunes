@@ -76,6 +76,8 @@ img {
   box-shadow: none;
   border: 1px solid #eee;
   height: 100%;
+  min-width: 280px;
+  min-height: 287px;
 
   &:hover, &:focus {
     box-shadow: 1px 0 14px 0 #ddd;
